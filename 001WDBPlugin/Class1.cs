@@ -98,8 +98,15 @@ namespace _001WDBPlugin
         }
         void OnRoundStarted()
         {
-            Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, -Respawn.ChaosTickets, true);
-            Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, -Respawn.NtfTickets, true);
+            foreach (Lift lift in Lift.Instances)
+            {
+                lift.Lock();
+            }
+            if(Config.OverrideTickets)
+            {
+                Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, -Respawn.ChaosTickets, true);
+                Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, -Respawn.NtfTickets, true);
+            }
             
             Timing.CallDelayed(10, () => CustomAnnouncement("attention all personnel . x k class event scp 0 0 1 a k a when day breaks detected . .g5 . keep any biological materials inside the facility until arrival of an nato_e 11 escort team . . g3", "Attention all personnel: XK-Class event SCP 001 AKA 'When Day Breaks' detected. Keep any biological materials inside the facility until arrival of an E-11 escort team"));
             Timing.CallDelayed(90, () => CustomAnnouncement(".g3 .g4 .g6 .g2 attention all personnel . an up date from the O5 console . . there is no threat . the day is great . .g4 .g2 . go outside", "Attention all personnel: An update from the O5 council:  there is no threat  the day is great            go outside"));
@@ -111,8 +118,11 @@ namespace _001WDBPlugin
                 broadcastSent = true;
                 Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, 50, false);
                 CustomAnnouncement("broadcast to o 5 console engaged .g6 .g4 .g1 .g3 . . . . . .g2 emergency broadcast complete .g6", "Broadcast to O5 Council engaged..........Emergency broadcast complete.");
-                Timing.CallDelayed(60, () => CustomAnnouncement("attention all personnel . an escort team is on the way . please locate the nearest evacuation shelter and close the gates once all survivors are secure", "Attention all personnel: An escort team is on the way. Please locate the nearest evacuation shelter and close the gates once all survivors are secure."));
-                Timing.CallDelayed(180, () => Respawn.ForceWave(Respawning.SpawnableTeamType.NineTailedFox, false));
+                if(Config.OverrideTickets)
+                {
+                    Timing.CallDelayed(60, () => CustomAnnouncement("attention all personnel . an escort team is on the way . please locate the nearest evacuation shelter and close the gates once all survivors are secure", "Attention all personnel: An escort team is on the way. Please locate the nearest evacuation shelter and close the gates once all survivors are secure."));
+                    Timing.CallDelayed(180, () => Respawn.ForceWave(Respawning.SpawnableTeamType.NineTailedFox, false));
+                }
             }
         }
         void OnRespawningTeam(RespawningTeamEventArgs ev)

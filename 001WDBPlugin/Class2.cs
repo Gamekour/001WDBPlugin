@@ -15,4 +15,7 @@ public class Config : IConfig
     [Description("Controls whether or not CI can survive on surface without becoming zombies")]
     public bool CISuit { get; set; } = false;
 
+    [Description("Controls whether or to override spawn ticket system")]
+    public bool OverrideTickets { get; set; } = true;
+
 }
