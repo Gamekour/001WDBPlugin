@@ -1,4 +1,4 @@
-# 001WDBPlugin
+# SCP-001 (When Day Breaks)
 
 ![001](https://user-images.githubusercontent.com/49810363/131126449-90b169fe-f612-45ea-9356-4242380ad17c.jpg)
 
