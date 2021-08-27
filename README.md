@@ -2,7 +2,7 @@
 
 ![001](https://user-images.githubusercontent.com/49810363/131126449-90b169fe-f612-45ea-9356-4242380ad17c.jpg)
 
-This is a plugin which adds S. D. Locke's
+This is a plugin for SCP: Secret Laboratory which adds S. D. Locke's
 SCP-001 proposal (When Day Breaks) to the game,
 whether it be an event based on a chance(in the config)
 or always enabled.
