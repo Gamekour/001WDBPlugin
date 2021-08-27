@@ -8,9 +8,9 @@ whether it be an event based on a chance(in the config)
 or always enabled.
 
 In short, anyone who is not either 
-A. an MTF(or chaos if enabled in config)
-B. wearing heavy armor
-C. an SCP
+	A. an MTF(or chaos if enabled in config)
+	B. wearing heavy armor
+	C. an SCP
 
 Will turn into a zombie(001-A instance)
 upon entering surface zone.
